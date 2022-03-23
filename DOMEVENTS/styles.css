@@ -26,3 +26,20 @@ body{
 input{
   margin: 2rem auto;
 }
+
+#text2{
+  text-transform: capitalize;
+  color: #1ab785;
+  padding: 0.5rem 1rem;
+  font-size: 2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-weight: 600;
+}
+
+#text2:hover{
+  border: 1px solid #222;
+}

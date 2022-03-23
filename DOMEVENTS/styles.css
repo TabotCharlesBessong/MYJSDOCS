@@ -47,5 +47,29 @@ input{
 /* append child section */
 #olist{
   list-style: none;
-  
+
+}
+
+/* classlist section */
+.bold{
+  font-weight: bold;
+}
+
+.redBg{
+  background: red;
+}
+
+.white-text{
+  color: #fff;
+}
+
+.bigTxt{
+  font-size: 3rem;
+}
+
+.center{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* padding: 5% 10%; */
 }

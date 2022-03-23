@@ -61,3 +61,15 @@ docFrag.appendChild(item2)
 console.log(docFrag);
 
 list2.appendChild(docFrag)
+
+// classList Property element in JavaScript
+
+const para1 = document.querySelector("#para1")
+console.log(para1.classList);
+
+para1.classList.add('bold','bigTxt','redBg','white-text')
+para1.classList.remove('redBg','white-text')
+// replacing class with javascript classlist 
+para1.classList.replace('bigTxt','redBg')
+// we can also toggle classes with javascript 
+// If the class exist , we replace it  but add if it does not exist 

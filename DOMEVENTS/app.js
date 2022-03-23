@@ -73,3 +73,9 @@ para1.classList.remove('redBg','white-text')
 para1.classList.replace('bigTxt','redBg')
 // we can also toggle classes with javascript 
 // If the class exist , we replace it  but add if it does not exist 
+
+
+// Dataset property in javascript 
+const division1 = document.querySelector('#div1')
+console.log(division1.dataset);
+division1.dataset.name = "Bob"

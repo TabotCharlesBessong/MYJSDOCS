@@ -43,3 +43,21 @@ for ( fruits of fruitsList ){
   newItem.textContent = fruits 
   list.appendChild(newItem)
 }
+
+
+// Document Fragment 
+const list2 = document.querySelector("#ulist")
+const docFrag = document.createDocumentFragment()
+
+let item1 = document.createElement('li')
+let item2 = document.createElement('li')
+
+item1.textContent = "Hello my Friends"
+item2.textContent = "Hello Enemies"
+
+docFrag.appendChild(item1)
+docFrag.appendChild(item2)
+
+console.log(docFrag);
+
+list2.appendChild(docFrag)

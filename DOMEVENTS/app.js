@@ -27,5 +27,19 @@ text2.textContent = "Hello my love you have been missing , where have you been ?
 
 text1.innerHTML =  "<b>Hello men</b>";
 
-alert(text2.textContent)
-alert(text1.textContent)
+// alert(text2.textContent)
+// alert(text1.textContent)
+
+// AppendChild Property
+list = document.querySelector('#olist')
+li1 = document.createElement('li')
+li1.textContent = 'Banana'
+list.appendChild(li1)
+
+const fruitsList = ["Gueva","Pearl","Orange","Mango","Lemon"]
+
+for ( fruits of fruitsList ){
+  let newItem = document.createElement('li')
+  newItem.textContent = fruits 
+  list.appendChild(newItem)
+}

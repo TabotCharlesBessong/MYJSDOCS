@@ -43,3 +43,9 @@ input{
 #text2:hover{
   border: 1px solid #222;
 }
+
+/* append child section */
+#olist{
+  list-style: none;
+  
+}

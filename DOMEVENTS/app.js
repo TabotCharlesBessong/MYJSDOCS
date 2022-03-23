@@ -116,3 +116,23 @@ console.log(tomato);
 const nav = document.querySelector('nav')
 const navSibling = nav.nextElementSibling
 navSibling.style.marginTop = nav.clientHeight + "px"
+
+// DOCUMENT GET BOUNDING CLIENT RECT
+const div2 = document.createElement('div')
+document.body.appendChild(div2)
+div2.setAttribute('class','div2')
+// div2.style.width = '220px'
+// div2.style.height = '220px'
+// div2.style.background = '#1ab785'
+// div2.style.margin = "2rem auto"
+// div2.style.borderRadius = "50%"
+const rect = div2.getBoundingClientRect()
+console.log(rect);
+
+window.addEventListener("scroll",()=>{
+  // console.log(window.innerHeight);
+  // console.log(div2.getBoundingClientRect().top);
+  if(div2.getBoundingClientRect().top < window.innerHeight){
+    div2.style.background = "blue"
+  }
+})

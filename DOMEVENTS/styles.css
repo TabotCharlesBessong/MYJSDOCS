@@ -95,3 +95,11 @@ ol,ul{
   justify-content: space-between;
   /* padding: 5% 10%; */
 }
+
+.div2{
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: #1ab785;
+  margin: 2rem auto; 
+}

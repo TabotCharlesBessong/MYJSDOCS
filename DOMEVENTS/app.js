@@ -104,3 +104,15 @@ const Banana = listChildren[1]
 console.log(Banana);
 const bananasCopies = Banana.cloneNode(true)
 list2.appendChild(bananasCopies)
+
+// Node next element sibling
+const enemies = document.querySelector("#ulist > li:nth-of-type(3)")
+console.log(enemies , 'enemies');
+const tomato = enemies.nextElementSibling
+console.log(tomato);
+
+// Next element sibling will give you the next html element , but next sibling will just give you the next node 
+
+const nav = document.querySelector('nav')
+const navSibling = nav.nextElementSibling
+navSibling.style.marginTop = nav.clientHeight + "px"

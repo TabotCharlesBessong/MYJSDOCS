@@ -5,10 +5,24 @@
   box-sizing: border-box;
 }
 
-/* div{
+body{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.division{
   width: 200px;
   height: 200px;
   background: red;
   border-radius: 50%;
   margin: 2rem auto;
-} */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input{
+  margin: 2rem auto;
+}

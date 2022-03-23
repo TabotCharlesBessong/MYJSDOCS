@@ -79,3 +79,19 @@ para1.classList.replace('bigTxt','redBg')
 const division1 = document.querySelector('#div1')
 console.log(division1.dataset);
 division1.dataset.name = "Bob"
+
+// Insert before element 
+const firstEle = document.createElement('li')
+const secondEle = document.createElement('li')
+const firstChild1 = list2.firstChild
+firstEle.textContent = "Coconut"
+secondEle.textContent = "Tomato"
+list2.appendChild(secondEle)
+list2.insertBefore(firstEle,secondEle)
+
+const addToBegin = (parent , node)=>{
+   const firstChild = parent.firstChild
+   parent.insertBefore(node,firstChild)
+}
+
+addToBegin(list2,firstEle)

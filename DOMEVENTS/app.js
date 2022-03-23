@@ -136,3 +136,39 @@ window.addEventListener("scroll",()=>{
     div2.style.background = "blue"
   }
 })
+
+// const h2 = document.createElement('h2')
+// document.body.appendChild(h2)
+// h2.textContent = "Progress bar"
+
+class ProgressBar {
+  constructor(ele,init =  0){
+    this.valueEle = ele.querySelector('.pbv')
+    this.fillEle = ele.querySelector('.pbf')
+
+    // this.setValue(init)
+
+    console.log(this.valueEle);
+    console.log(this.fillEle);
+
+    this.setValue(init)
+  }
+  setValue (newValue){
+    if(newValue < 0) newValue = 0
+    if(newValue > 100) newValue = 100
+
+
+    this.value = newValue
+    this.update()
+  }
+
+  update(){
+    const perc = this.value + '%'
+    this.fillEle.style.width = perc
+    this.valueEle.textContent = perc
+  }
+
+  
+}
+
+new ProgressBar(document.querySelector('.pb'),75)

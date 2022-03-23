@@ -95,3 +95,12 @@ const addToBegin = (parent , node)=>{
 }
 
 addToBegin(list2,firstEle)
+
+// Node clone method 
+// Helps you create a copy of a node
+
+const listChildren = list2.children
+const Banana = listChildren[1]
+console.log(Banana);
+const bananasCopies = Banana.cloneNode(true)
+list2.appendChild(bananasCopies)

@@ -186,3 +186,8 @@ strong.addEventListener('click',()=>{
 })
 
 // Bubbling is from child to parent and capturing  is the reverse
+
+// Parent window object 
+console.log(window.parent);
+const parentDoc = window.parent.document
+const parentHead = document.querySelector("#heading")

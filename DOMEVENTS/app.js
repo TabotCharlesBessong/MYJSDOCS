@@ -172,3 +172,17 @@ class ProgressBar {
 }
 
 new ProgressBar(document.querySelector('.pb'),75)
+
+
+// Bubbling vs Capturing in Javascript
+const para2 = document.querySelector("#para2")
+const strong = document.querySelector("#strong")
+para2.addEventListener('click',()=>{
+  console.log('Je suis le parent');
+},true)
+
+strong.addEventListener('click',()=>{
+  console.log('Je suis l"enfant');
+})
+
+// Bubbling is from child to parent and capturing  is the reverse

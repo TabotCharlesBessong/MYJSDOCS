@@ -21,11 +21,50 @@ class AmbientMixer {
       // render sounds cards using sound data
       this.ui.renderSoundCards(sounds)
       // this.soundManager.loadSound('rain','../audio/rain.mp3')
+      this.setupEventListeners()
       // load all sound
       this.loadAllSounds()
       this.isInitialized = true
     } catch (error) {
       console.error("Failed to initialize app",error)
+    }
+  }
+
+  // setup all event listerners
+  setupEventListeners(){
+    // handle all clicks with event delegation
+    document.addEventListener('click',async (e) => {
+      // check if play button was clicked
+      if(e.target.closest('.play-btn')){
+        const soundId = e.target.closest('.play-btn').dataset.sound
+        // console.log(soundId)
+        // toogle sound
+        await this.toggleSound(soundId)
+      }
+    })
+  }
+
+  // toggle individual sounds
+  async toggleSound(soundId){
+    const audio = this.soundManager.audioElements.get(soundId)
+
+    if(!audio){
+      console.error(`Sound ${soundId} not found`)
+      return false
+    }
+
+    if (audio.paused){
+      // sound is off, turn it on
+      this.soundManager.setVolume(soundId,17)
+      await this.soundManager.playSound(soundId)
+
+      // @todo - update play button
+      this.ui.updateSoundPlayButton(soundId,true)
+    } else {
+      // sound is on, shut it off
+      this.soundManager.pauseSound(soundId)
+      // @todo - update play button
+      this.ui.updateSoundPlayButton(soundId,false)
     }
   }
 

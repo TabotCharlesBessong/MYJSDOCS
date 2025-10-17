@@ -1,11 +1,12 @@
 import {sounds,defaultPresets} from "./soundData.js"
 import { SoundManager } from "./soundManager.js"
+import { UI } from "./ui.js"
 
 class AmbientMixer {
   // initialize deps
   constructor(){
     this.soundManager = new SoundManager()
-    this.ui = null
+    this.ui = new UI()
     this.presetManager = null
     this.timer = null
     this.currentSoundState = {}
@@ -14,6 +15,11 @@ class AmbientMixer {
 
   init(){
     try {
+      // initialize UI
+      this.ui.init()
+
+      // render sounds cards using sound data
+      this.ui.renderSoundCards(sounds)
       // this.soundManager.loadSound('rain','../audio/rain.mp3')
       // load all sound
       this.loadAllSounds()

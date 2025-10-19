@@ -109,7 +109,7 @@ class AmbientMixer {
       this.ui.updateVolumeDisplay(soundId,volume)
     }
   }
-}
+}i
 
 document.addEventListener('DOMContentLoaded',() => {
   const app = new AmbientMixer()

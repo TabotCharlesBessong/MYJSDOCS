@@ -13,23 +13,23 @@ export class UI {
   }
 
   init() {
-    this.soundCardsContainer = document.querySelector(".grid");
-    this.masterVolumeSlider = document.getElementById("masterVolume");
-    this.masterVolumeValue = document.getElementById("masterVolumeValue");
-    this.playPauseButton = document.getElementById("playPauseAll");
-    this.resetButton = document.getElementById("resetAll");
-    this.modal = document.getElementById("savePresetModal");
-    this.customPresetsContainer = document.getElementById("customPresets");
-    this.timerDisplay = document.getElementById("timerDisplay");
-    this.timerSelect = document.getElementById("timerSelect");
-    this.themeToggle = document.getElementById("themeToggle");
+    this.soundCardsContainer = document.querySelector('.grid');
+    this.masterVolumeSlider = document.getElementById('masterVolume');
+    this.masterVolumeValue = document.getElementById('masterVolumeValue');
+    this.playPauseButton = document.getElementById('playPauseAll');
+    this.resetButton = document.getElementById('resetAll');
+    this.modal = document.getElementById('savePresetModal');
+    this.customPresetsContainer = document.getElementById('customPresets');
+    this.timerDisplay = document.getElementById('timerDisplay');
+    this.timerSelect = document.getElementById('timerSelect');
+    this.themeToggle = document.getElementById('themeToggle');
   }
 
   // Create sound card HTML
   createSoundCard(sound) {
-    const card = document.createElement("div");
+    const card = document.createElement('div');
     card.className =
-      "sound-card bg-white/10 backdrop-blur-md rounded-2xl p-6 relative overflow-hidden transition-all duration-300";
+      'sound-card bg-white/10 backdrop-blur-md rounded-2xl p-6 relative overflow-hidden transition-all duration-300';
     card.dataset.sound = sound.id;
 
     card.innerHTML = ` <div class="flex flex-col h-full">
@@ -69,9 +69,9 @@ export class UI {
 
   // Create custom preset button
   createCustomPresetButton(name, presetId) {
-    const button = document.createElement("button");
+    const button = document.createElement('button');
     button.className =
-      "custom-preset-btn bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg transition-all duration-300 relative group";
+      'custom-preset-btn bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg transition-all duration-300 relative group';
     button.dataset.preset = presetId;
     button.innerHTML = `  <i class="fas fa-star mr-2 text-yellow-400"></i>
     ${name}
@@ -83,7 +83,7 @@ export class UI {
 
   // Render all sound cards
   renderSoundCards(sounds) {
-    this.soundCardsContainer.innerHTML = "";
+    this.soundCardsContainer.innerHTML = '';
     sounds.forEach((sound) => {
       const card = this.createSoundCard(sound);
       this.soundCardsContainer.appendChild(card);
@@ -95,17 +95,17 @@ export class UI {
     const card = document.querySelector(`[data-sound="${soundId}"]`);
 
     if (card) {
-      const playBtn = card.querySelector(".play-btn");
-      const icon = playBtn.querySelector("i");
+      const playBtn = card.querySelector('.play-btn');
+      const icon = playBtn.querySelector('i');
 
       if (isPlaying) {
-        icon.classList.remove("fa-play");
-        icon.classList.add("fa-pause");
-        card.classList.add("playing");
+        icon.classList.remove('fa-play');
+        icon.classList.add('fa-pause');
+        card.classList.add('playing');
       } else {
-        icon.classList.remove("fa-pause");
-        icon.classList.add("fa-play");
-        card.classList.remove("playing");
+        icon.classList.remove('fa-pause');
+        icon.classList.add('fa-play');
+        card.classList.remove('playing');
       }
     }
   }
@@ -116,19 +116,19 @@ export class UI {
 
     if (card) {
       // Update number display
-      const volumeValue = card.querySelector(".volume-value");
+      const volumeValue = card.querySelector('.volume-value');
       if (volumeValue) {
         volumeValue.textContent = volume;
       }
 
       // Update volume bar visuals
-      const volumeBarFill = card.querySelector(".volume-bar-fill");
+      const volumeBarFill = card.querySelector('.volume-bar-fill');
       if (volumeBarFill) {
         volumeBarFill.style.width = `${volume}%`;
       }
 
       // Udpate slider position
-      const slider = card.querySelector(".volume-slider");
+      const slider = card.querySelector('.volume-slider');
       if (slider) {
         slider.value = volume;
       }
@@ -137,21 +137,21 @@ export class UI {
 
   // Update main play/pause button
   updateMainPlayButton(isPlaying) {
-    const icon = this.playPauseButton.querySelector("i");
+    const icon = this.playPauseButton.querySelector('i');
 
     if (isPlaying) {
-      icon.classList.remove("fa-play");
-      icon.classList.add("fa-pause");
+      icon.classList.remove('fa-play');
+      icon.classList.add('fa-pause');
     } else {
-      icon.classList.remove("fa-pause");
-      icon.classList.add("fa-play");
+      icon.classList.remove('fa-pause');
+      icon.classList.add('fa-play');
     }
   }
 
   // Reset all UI elements to default state
   resetUI() {
     // Reset sliders to 0
-    const sliders = document.querySelectorAll(".volume-slider");
+    const sliders = document.querySelectorAll('.volume-slider');
     sliders.forEach((slider) => {
       slider.value = 0;
       const soundId = slider.dataset.sound;
@@ -159,17 +159,17 @@ export class UI {
     });
 
     // Reset all play buttons to play state
-    const playButtons = document.querySelectorAll(".play-btn");
+    const playButtons = document.querySelectorAll('.play-btn');
     playButtons.forEach((btn) => {
-      const icon = btn.querySelector("i");
-      icon.classList.remove("fa-pause");
-      icon.classList.add("fa-play");
+      const icon = btn.querySelector('i');
+      icon.classList.remove('fa-pause');
+      icon.classList.add('fa-play');
     });
 
     // Remove playing class from cards
-    const cards = document.querySelectorAll(".sound-card");
+    const cards = document.querySelectorAll('.sound-card');
     cards.forEach((card) => {
-      card.classList.remove("fa-playing");
+      card.classList.remove('fa-playing');
     });
 
     // Reset main play/pause button
@@ -177,21 +177,21 @@ export class UI {
 
     // Reset master volume to 100%
     this.masterVolumeSlider.value = 100;
-    this.masterVolumeValue.textContent = "100%";
+    this.masterVolumeValue.textContent = '100%';
   }
 
   // Show save preset modal
   showModal() {
-    this.modal.classList.remove("hidden");
-    this.modal.classList.add("flex");
-    document.getElementById("presetName").focus();
+    this.modal.classList.remove('hidden');
+    this.modal.classList.add('flex');
+    document.getElementById('presetName').focus();
   }
 
   // Hide save preset modal
   hideModal() {
-    this.modal.classList.add("hidden");
-    this.modal.classList.remove("flex");
-    document.getElementById("presetName").value = "";
+    this.modal.classList.add('hidden');
+    this.modal.classList.remove('flex');
+    document.getElementById('presetName').value = '';
   }
 
   // Add custom preset to UI
@@ -204,9 +204,9 @@ export class UI {
   setActivePreset(presetKey) {
     // Remove active class from all buttons
     document
-      .querySelectorAll(".preset-btn, .custom-preset-btn")
+      .querySelectorAll('.preset-btn, .custom-preset-btn')
       .forEach((btn) => {
-        btn.classList.remove("preset-active");
+        btn.classList.remove('preset-active');
       });
 
     // Add active class to selected presets
@@ -215,7 +215,7 @@ export class UI {
     );
 
     if (activeButton) {
-      activeButton.classList.add("preset-active");
+      activeButton.classList.add('preset-active');
     }
   }
 
@@ -233,13 +233,13 @@ export class UI {
   updateTimerDisplay(minutes, seconds) {
     if (this.timerDisplay) {
       if (minutes > 0 || seconds > 0) {
-        const formattedTime = `${minutes.toString().padStart(2, "0")}:${seconds
+        const formattedTime = `${minutes.toString().padStart(2, '0')}:${seconds
           .toString()
-          .padStart(2, "0")}`;
+          .padStart(2, '0')}`;
         this.timerDisplay.textContent = formattedTime;
-        this.timerDisplay.classList.remove("hidden");
+        this.timerDisplay.classList.remove('hidden');
       } else {
-        this.timerDisplay.classList.add("hidden");
+        this.timerDisplay.classList.add('hidden');
       }
     }
   }
@@ -247,14 +247,14 @@ export class UI {
   // Toggle theme
   toggleTheme() {
     const body = document.body;
-    const icon = this.themeToggle.querySelector("i");
+    const icon = this.themeToggle.querySelector('i');
 
-    if (body.classList.contains("light-theme")) {
-      body.classList.remove("light-theme");
-      icon.classList.replace("fa-moon", "fa-sun");
+    if (body.classList.contains('light-theme')) {
+      body.classList.remove('light-theme');
+      icon.classList.replace('fa-moon', 'fa-sun');
     } else {
-      body.classList.add("light-theme");
-      icon.classList.replace("fa-sun", "fa-moon");
+      body.classList.add('light-theme');
+      icon.classList.replace('fa-sun', 'fa-moon');
     }
   }
 }
